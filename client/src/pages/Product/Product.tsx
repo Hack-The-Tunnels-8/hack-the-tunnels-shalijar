@@ -28,16 +28,21 @@ function Product() {
       <div className="product-page">
         {message && <p>{message}</p>}
         {product && (
-          <>
-            <div className="product-page__product">
-              <h3>Title: {product.title}</h3>
-              <p>ID: {id}</p>
-              <p>Description: {product.description}</p>
+          <div className="product-container">
+            <div className="product-image">
+              {product.png}
+              <img src={product.imageUrl} alt={product.title} />
             </div>
-            <Link to={`/checkout/${product.id}`}>
-              <button>Buy Now</button>
-            </Link>
-          </>
+            <div className="product-details">
+              <h3>{product.title}</h3>
+              <p>ID: {id}</p>
+              <p>{product.description}</p>
+              <p>Price: ${product.price}</p>
+              <Link to={`/checkout/${product.id}`}>
+                <button>Buy Now</button>
+              </Link>
+            </div>
+          </div>
         )}
       </div>
     </Page>
