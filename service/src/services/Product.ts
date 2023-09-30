@@ -55,22 +55,21 @@ export const update = async (id: string, data: Partial<Product>) => {
 };
 
 export const search = async (searchTerm: string): Promise<Product[]> => {
-  try {
-    const products = await prisma.product.findMany({
-      where: {
-        OR: [
-          {
-            title: {
-              contains: searchTerm,
-            },
+  const products = await prisma.product.findMany({
+    where: {
+      OR: [
+        {
+          title: {
+            contains: searchTerm,
           },
-        ],
-      },
-    });
-
-    return products;
-  } catch (error) {
-    console.error("Error searching products:", error);
-    return [];
-  }
+        },
+        {
+          description: {
+            contains: searchTerm,
+          },
+        },
+      ],
+    },
+  });
+  return products;
 };

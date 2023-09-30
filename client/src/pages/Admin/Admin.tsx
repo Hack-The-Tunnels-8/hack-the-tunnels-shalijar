@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Page } from "../../components";
 import { useAccountContext } from "../../context";
 import "./Admin.style.scss";
+import AdminChart from "./AdminChart"; // Import the AdminChart component
 
 function Admin() {
   const { loggedIn } = useAccountContext();
@@ -16,6 +17,7 @@ function Admin() {
           <div>
             <h2>Admin Actions:</h2>
             <Link to="/admin/create-product">Create Product</Link>
+            <AdminChart /> {/* Use the AdminChart component here */}
           </div>
         )}
       </div>

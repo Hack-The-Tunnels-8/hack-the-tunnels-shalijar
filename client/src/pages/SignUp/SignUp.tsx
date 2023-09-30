@@ -1,5 +1,5 @@
 import { Page } from "../../components";
-import React, { useState } from "react";
+import { useState } from "react";
 import { ServiceAPI } from "../../infrastructure";
 import "./SignUp.style.scss";
 
