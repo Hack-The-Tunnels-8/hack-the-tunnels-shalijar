@@ -39,3 +39,17 @@ export const create = async (
 
   return newProduct;
 };
+
+export const update = async (id: string, data: Partial<Product>) => {
+  try {
+    const product = await prisma.product.update({
+      where: { id: parseInt(id) },
+      data: data,
+    });
+
+    return product;
+  } catch (error) {
+    console.error("Error updating product:", error);
+    return null;
+  }
+};
