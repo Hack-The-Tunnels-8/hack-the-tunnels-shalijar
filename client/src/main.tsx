@@ -67,3 +67,4 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </CookiesProvider>
   </React.StrictMode>,
 );
+

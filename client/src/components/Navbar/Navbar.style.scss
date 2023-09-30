@@ -12,6 +12,7 @@
 }
 
 .navbar__logo img {
+  display: flex;
   width: 100px; 
 }
 
@@ -27,4 +28,8 @@
 
 .custom-button:hover {
   background-color: #0056b3; 
+}
+
+.navbar.hidden {
+  display: none; 
 }
