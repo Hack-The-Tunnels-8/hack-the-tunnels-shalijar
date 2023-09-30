@@ -16,19 +16,25 @@ const getProducts = async (_: Request, response: Response) => {
 };
 
 const getProduct = async (request: Request, response: Response) => {
-  const id = request.params.id;
-  const product = await ProductService.find(id);
+  const searchTerm = request.query.searchTerm as string | undefined;
 
-  if (product === null) {
-    return error(response, {
-      error: "Product not found.",
-      statusCode: 404,
+  // If searchTerm is provided, use the search function
+  if (searchTerm) {
+    const products = await ProductService.search(searchTerm);
+    return success(response, {
+      data: {
+        products: products,
+      },
+      statusCode: 200,
     });
   }
 
+  // Otherwise, fetch all products
+  const products = await ProductService.all();
+
   return success(response, {
     data: {
-      product: product,
+      products: products,
     },
     statusCode: 200,
   });

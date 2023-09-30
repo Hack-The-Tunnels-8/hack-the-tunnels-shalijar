@@ -53,3 +53,25 @@ export const update = async (id: string, data: Partial<Product>) => {
     return null;
   }
 };
+
+export const search = async (searchTerm: string): Promise<Product[]> => {
+  try {
+    const products = await prisma.product.findMany({
+      where: {
+        OR: [
+          {
+            title: {
+              contains: searchTerm,
+            },
+          },
+          // Add more search criteria here as needed
+        ],
+      },
+    });
+
+    return products;
+  } catch (error) {
+    console.error("Error searching products:", error);
+    return [];
+  }
+};
