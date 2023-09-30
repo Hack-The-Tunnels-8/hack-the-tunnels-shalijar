@@ -64,7 +64,6 @@ export const search = async (searchTerm: string): Promise<Product[]> => {
               contains: searchTerm,
             },
           },
-          // Add more search criteria here as needed
         ],
       },
     });
