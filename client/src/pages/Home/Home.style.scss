@@ -17,10 +17,23 @@
       color: inherit;
     }
 
-    /* Define the width for each product card (adjust as needed) */
-    .product-card {
-      width: calc(33.33% - 20px); 
-      margin-bottom: 20px; 
+    .product-preview-card {
+      width: calc(33.33% - 20px);
+      margin-bottom: 20px;
+      transition: transform 0.2s ease-in-out; /* Define the animation transition */
+    }
+    
+    .product-preview-card {
+      animation: bounce 0.5s ease infinite; /* Apply the bounce animation on hover */
+    }
+    
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0); /* Start and end position: no vertical translation */
+      }
+      50% {
+        transform: translateY(-20px); /* Peak of the bounce: translate upward */
+      }
     }
   }
 }
