@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Page } from "../../components";
+import { Page, ProductPreviewCard } from "../../components";
 import { ServiceAPI } from "../../infrastructure";
 import "./Checkout.style.scss";
 
@@ -13,7 +13,7 @@ function Checkout() {
     const json = await ServiceAPI.createOrderWithOneItem(
       "Test Customer",
       "test@email.com",
-      productId,
+      productId
     );
 
     if (json.error !== null) {
@@ -36,7 +36,7 @@ function Checkout() {
     };
 
     fetchData();
-  }, []);
+  }, [productId]);
 
   return (
     <Page>
@@ -46,11 +46,17 @@ function Checkout() {
           <>
             <h2>You are about to make an order with the following product:</h2>
             <div className="checkout-page__product">
-              <h3>Title: {product.title}</h3>
+              <ProductPreviewCard
+                title={product.title}
+                description={product.description}
+                price={product.price}
+                imageUrl={product.imageUrl}
+              />
             </div>
             <button onClick={() => createOrder()}>
               Create Order (with customer set in code)
             </button>
+            <Link to="/">Back to Home</Link>
           </>
         )}
       </div>
