@@ -5,17 +5,20 @@ import { useAccountContext } from "../../context";
 import "./Login.style.scss";
 
 function Login() {
+  const [email, setEmail] = useState(""); // Add email state
+  const [password, setPassword] = useState(""); // Add password state
   const [message, setMessage] = useState(null);
   const { loggedIn, login } = useAccountContext();
   const navigate = useNavigate();
 
   const attemptLogin = async () => {
     try {
-      const message = await login("admin@email.com", "password");
+      const message = await login(email, password); 
       setMessage(message);
     } catch (error) {
       console.log(error);
-    }
+      setMessage("Invalid credentials. Please try again."); 
+    } // Add the missing closing curly brace here
   };
 
   useEffect(() => {
@@ -28,10 +31,20 @@ function Login() {
     <Page>
       <div className="login-page">
         <h1>Login</h1>
-        <button onClick={() => attemptLogin()}>
-          Login (as user set in code)
-        </button>
-        {message && <p>{message}</p>}
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)} // Update email state
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)} // Update password state
+        />
+        <button onClick={() => attemptLogin()}>Login</button>
+        {message && <p className="error-message">{message}</p>}
       </div>
     </Page>
   );
