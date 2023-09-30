@@ -10,16 +10,28 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="navbar__logo">
-        <Link to="/">Store Logo</Link>
+        <Link to="/">
+          <img
+            src="/logo.png" 
+            width="150" 
+            alt="Store Logo"
+          />
+        </Link>
       </div>
       <div className="navbar__account">
         {loggedIn() === false ? (
           <>
-            <button onClick={() => navigate("/sign-up")}>Sign Up</button>
-            <button onClick={() => navigate("/login")}>Login</button>
+            <button className="custom-button" onClick={() => navigate("/sign-up")}>
+              Sign Up
+            </button>
+            <button className="custom-button" onClick={() => navigate("/login")}>
+              Login
+            </button>
           </>
         ) : (
-          <button onClick={() => logout()}>Logout</button>
+          <button className="custom-button" onClick={() => logout()}>
+            Logout
+          </button>
         )}
       </div>
     </div>
