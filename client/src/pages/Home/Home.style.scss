@@ -6,16 +6,25 @@
     color: red;
   }
 
+  /* Utilize Flexbox with row wrapping */
   &__products {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap; 
+    gap: 20px; 
 
     a {
       text-decoration: none;
       color: inherit;
     }
+
+    /* Define the width for each product card (adjust as needed) */
+    .product-card {
+      width: calc(33.33% - 20px); 
+      margin-bottom: 20px; 
+    }
   }
 }
+
 @media (prefers-color-scheme: dark) {
   .home-page.adaptive {
     background: rgb(63, 36, 10);
