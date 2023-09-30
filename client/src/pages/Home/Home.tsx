@@ -38,7 +38,7 @@ function Home() {
   return (
     <Page>
       <div className={`home-page ${isDarkMode ? 'adaptive' : ''}`}>
-        <h1 className="home-page__title">Home</h1>
+        <h1 style={{ fontFamily: 'Cursive', fontSize: '1.50rem', margin: '8px 0' }} className="home-page__title">Home</h1>
         <p>Hello, world!</p>
         <h2>Products:</h2>
         <div className="home-page__products">
