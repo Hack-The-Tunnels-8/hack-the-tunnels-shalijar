@@ -1,4 +1,7 @@
 .home-page {
+  background: rgb(234, 231, 226);
+  color: #731;
+
   &__title {
     color: red;
   }
@@ -11,5 +14,12 @@
       text-decoration: none;
       color: inherit;
     }
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .home-page.adaptive {
+    background: rgb(63, 36, 10);
+    color: #dcb;
+    outline: 5px dashed #000;
   }
 }

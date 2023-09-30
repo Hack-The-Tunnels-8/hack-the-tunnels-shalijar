@@ -1,0 +1,12 @@
+.home-page.adaptive {
+    background-color: rgb(20, 20, 20); /* Dark background color */
+    color: #fff; 
+  
+  .home-page.adaptive .home-page__title {
+    color: #ffcc00; /* Yellow text color for titles */
+  }
+  
+  .home-page.adaptive .home-page__products {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
